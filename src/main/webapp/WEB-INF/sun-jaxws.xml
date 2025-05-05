@@ -1,0 +1,4 @@
+<endpoints xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
+    <endpoint name="UserManagementWS" url-pattern="/api/user"
+              implementation="eu.juanmasierragarcia.retrotracksoapjava.webservices.UserManagementWS"/>
+</endpoints>
