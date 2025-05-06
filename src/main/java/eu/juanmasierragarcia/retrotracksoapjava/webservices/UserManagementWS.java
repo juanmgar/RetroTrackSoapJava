@@ -7,14 +7,14 @@ import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import jakarta.jws.WebService;
 
-import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.util.Base64;
 import java.util.Date;
 
 @WebService(endpointInterface = "eu.juanmasierragarcia.retrotracksoapjava.webservices.IUserManagementWS")
 public class UserManagementWS implements IUserManagementWS {
     private final UserManagementRepository userManagementRepository = new UserManagementRepository();
-    private static final Key key = Keys.hmacShaKeyFor("ClaveSecretaMuySeguraDe32Caracteres!!".getBytes(StandardCharsets.UTF_8));
+    private static final Key key = Keys.hmacShaKeyFor(Base64.getDecoder().decode("uF0y3PI1N9e5B4FQWUKk5Jcz4OZK4IGrsQR0RpNpiX8="));
 
     @Override
     public String registerUser(String username, String password) {
@@ -32,7 +32,7 @@ public class UserManagementWS implements IUserManagementWS {
             return Jwts.builder()
                     .setSubject(username)
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 3600_000)) // 1 hora
+                    .setExpiration(new Date(System.currentTimeMillis() + 60000 ))
                     .signWith(key, SignatureAlgorithm.HS256)
                     .compact();
         }
