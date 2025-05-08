@@ -3,7 +3,7 @@ name: Build and Push SOAP API Docker Image
 on:
   push:
     branches:
-      - main  # Cambia si usas otra rama principal
+      - master
 
 jobs:
   build-and-push:
