@@ -1,6 +1,10 @@
 package eu.juanmasierragarcia.retrotracksoapjava.repository;
 import eu.juanmasierragarcia.retrotracksoapjava.model.User;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class UserManagementRepository {
     private static final String DB_URL = "jdbc:sqlite:retrotrack.db";
@@ -62,5 +66,20 @@ public class UserManagementRepository {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public List<String> listUsernames() {
+        List<String> usernames = new ArrayList<>();
+        String sql = "SELECT username FROM users";
+        try (Connection conn = DriverManager.getConnection(DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+             ResultSet rs = pstmt.executeQuery()) {
+            while (rs.next()) {
+                usernames.add(rs.getString("username"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return usernames;
     }
 }
