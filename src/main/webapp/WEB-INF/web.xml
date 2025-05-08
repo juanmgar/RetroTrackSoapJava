@@ -20,7 +20,7 @@
 
     <servlet-mapping>
         <servlet-name>soapwsservlet</servlet-name>
-        <url-pattern>/api/*</url-pattern>
+        <url-pattern>/soap/api/*</url-pattern>
     </servlet-mapping>
 
 </web-app>
