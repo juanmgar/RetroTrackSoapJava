@@ -10,6 +10,7 @@ import jakarta.jws.WebService;
 import java.security.Key;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 @WebService(endpointInterface = "eu.juanmasierragarcia.retrotracksoapjava.webservices.IUserManagementWS")
 public class UserManagementWS implements IUserManagementWS {
@@ -37,5 +38,10 @@ public class UserManagementWS implements IUserManagementWS {
                     .compact();
         }
         return "Usuario o contraseña incorrectos";
+    }
+
+    @Override
+    public List<String> listUsers() {
+        return userManagementRepository.listUsernames();
     }
 }
