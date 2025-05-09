@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private static final String URL = "jdbc:sqlite:retrotrack.db";
+    private static final String URL = "jdbc:sqlite:/usr/local/tomcat/bin/retrotrack.db";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);
