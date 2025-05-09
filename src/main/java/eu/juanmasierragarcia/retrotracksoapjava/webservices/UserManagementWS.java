@@ -33,7 +33,7 @@ public class UserManagementWS implements IUserManagementWS {
             return Jwts.builder()
                     .setSubject(username)
                     .setIssuedAt(new Date())
-                    .setExpiration(new Date(System.currentTimeMillis() + 60000 ))
+                    .setExpiration(new Date(System.currentTimeMillis() + 900000 ))
                     .signWith(key, SignatureAlgorithm.HS256)
                     .compact();
         }
