@@ -10,7 +10,7 @@ COPY target/RetroTrackSoapJava.war /usr/local/tomcat/webapps/ROOT.war
 COPY certs/keystore.jks /usr/local/tomcat/conf/keystore.jks
 
 # Copia base de datos con datos mínimos de prueba
-COPY retrotrack.db /usr/local/tomcat/bin/retrotrack.db
+COPY retrotrack.db /usr/local/tomcat/retrotrack.db
 
 # Copia el server.xml si necesitas configurar HTTPS en Tomcat
 COPY server.xml /usr/local/tomcat/conf/server.xml
